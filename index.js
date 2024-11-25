@@ -2,6 +2,7 @@
 const fs=require(`fs`)
 const http=require("http")
 const url=require("url")
+const slugify=require("slugify")
 const repaceTemplate=require("./modules/repaceTemplate")
 
 ////////////////////////////////
@@ -12,7 +13,8 @@ const overview=fs.readFileSync(`${__dirname}/templates/overview.html`,"utf-8")
 const card=fs.readFileSync(`${__dirname}/templates/card.html`,"utf-8")
 const products=fs.readFileSync(`${__dirname}/templates/product.html`,"utf-8")
 const dataObj=JSON.parse(data)
-
+const slag=dataObj.map(el=>slugify(el.productName,{lower:true}))
+console.log(slag)
 const server=http.createServer((req,res)=>{
       const {pathname,query}=url.parse(req.url,true)
 

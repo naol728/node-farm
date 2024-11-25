@@ -9,6 +9,7 @@
   "author": "naol meseret",
   "license": "ISC",
   "dependencies": {
+    "nodeman": "^1.1.2",
     "slugify": "^1.6.6"
   },
   "devDependencies": {
